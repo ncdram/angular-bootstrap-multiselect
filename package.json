@@ -28,5 +28,8 @@
   "scripts": {
     "install": "node node_modules/protractor/bin/webdriver-manager update",
     "test": "grunt ci"
+  },
+  "dependencies": {
+    "grunt-bump": "^0.7.0"
   }
 }
