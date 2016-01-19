@@ -104,10 +104,17 @@
                     $ngModelCtrl.$setViewValue(angular.copy($scope.selectedOptions));
                 }, true);
 
+                var optionsWatcher = $scope.$watch('options', function() {
+                    $scope.updateOptions();
+                });
+
                 $scope.$on('$destroy', function () {
                     $document.off('click', closeHandler);
                     if (watcher) {
                         watcher(); // Clean watcher
+                    }
+                    if (optionsWatcher) {
+                        optionsWatcher(); // Clean watcher
                     }
                 });
 
@@ -204,6 +211,8 @@
                             $scope.resolvedOptions = resolvedOptions;
                             updateSelectionLists();
                         });
+                    } else {
+                        $scope.resolvedOptions = $scope.options;
                     }
                 };
 
