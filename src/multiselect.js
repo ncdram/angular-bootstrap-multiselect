@@ -213,6 +213,7 @@
                         });
                     } else {
                         $scope.resolvedOptions = $scope.options;
+                        updateSelectionLists();
                     }
                 };
 

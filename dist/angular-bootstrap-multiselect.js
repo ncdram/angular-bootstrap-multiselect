@@ -13,7 +13,7 @@
         }, object)
     };
 
-    multiselect.directive('multiselect', function ($filter, $document, $log) {
+    multiselect.directive('multiselect', ['$filter', '$document', '$log', function ($filter, $document, $log) {
         return {
             restrict: 'AE',
             scope: {
@@ -213,6 +213,7 @@
                         });
                     } else {
                         $scope.resolvedOptions = $scope.options;
+                        updateSelectionLists();
                     }
                 };
 
@@ -238,7 +239,7 @@
 
             }
         };
-    });
+    }]);
 
 }());
 
